@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "@chakra-ui/icons";
 import { Avatar, Button, Flex, IconButton, Text } from "@chakra-ui/react";
-import { collection } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { auth, db } from "../firebaseconfig";
@@ -16,6 +16,16 @@ export const Sidebar = () => {
 
   const redirect = (id: string) => {
     router.push(`/chat/${id}`);
+  };
+
+  const chatExists = async (email: string | null) => {
+    chats.find((chat: any) => chat.users.includes(user?.email) && chat.users.includes(email));
+  };
+  const newChat = async () => {
+    const input = prompt("Enter email of chat recipient");
+    if (!chatExists(input)) {
+      await addDoc(collection(db, "chats"), { users: [user?.email, input] }); 
+    }
   };
 
   const chatList = () => {
@@ -65,7 +75,7 @@ export const Sidebar = () => {
           onClick={() => signOut()}
         />
       </Flex>
-      <Button margin={5} padding={4}>
+      <Button margin={5} padding={4} onClick={() => newChat()}>
         New Chat
       </Button>
       <Flex overflowX="scroll" direction="column" sx={{ scrollbarWidth: "none" }} flex={1}>
