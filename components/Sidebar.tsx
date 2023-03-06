@@ -15,14 +15,13 @@ export const Sidebar = () => (
   <Flex
     //    bgColor={"blue.100"}
     w="300px"
-    h="100vh"
     borderEnd={"1px"}
     borderColor={"gray.200"}
     direction={"column"}
   >
     <Flex
       h="81px"
-      //   bgColor={"red.100"}
+      //   bgColor={"rd.100"}
       w="100%"
       align={"center"}
       justifyContent={"space-between"}
@@ -39,7 +38,7 @@ export const Sidebar = () => (
     <Button margin={5} padding={4}>
       New Chat
     </Button>
-    <Flex overflowY={"auto"} direction={"column"} sx={{ scrollbarWidth: "none" }}>
+    <Flex overflowY={"auto"} direction={"column"} sx={{ scrollbarWidth: "none" }} flex={1}>
       <Chat />
     </Flex>
   </Flex>
