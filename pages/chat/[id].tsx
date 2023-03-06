@@ -1,6 +1,7 @@
 import { Avatar, Button, Flex, FormControl, Heading, Input, Text } from "@chakra-ui/react";
 import React from "react";
 import { Sidebar } from "../../components/Sidebar";
+import Head from "next/head";
 
 const TopBar = () => {
   return (
@@ -24,54 +25,60 @@ const BottomBar = () => {
 };
 const ChatDetail = () => {
   return (
-    //   @ts-ignore
-    <Flex h="100vh">
-      <Sidebar />
-      <Flex flex={1} direction={"column"}>
-        <TopBar />
-        <Flex
-          flex={1}
-          direction={"column"}
-          pt={4}
-          marginX={5}
-          overflowY={"auto"}
-          sx={{ scrollbarWidth: "none" }}
-        >
+    <>
+      <Head>
+        <title>Chat App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      // @ts-ignore
+      <Flex h="100vh">
+        <Sidebar />
+        <Flex flex={1} direction={"column"}>
+          <TopBar />
           <Flex
-            bg={"blue.100"}
-            width={"fit-content"}
-            minW={"100px"}
-            borderRadius={"lg"}
-            p={3}
-            m={1}
+            flex={1}
+            direction={"column"}
+            pt={4}
+            marginX={5}
+            overflowY={"auto"}
+            sx={{ scrollbarWidth: "none" }}
           >
-            <Text>This is a dummy message.</Text>
+            <Flex
+              bg={"blue.100"}
+              width={"fit-content"}
+              minW={"100px"}
+              borderRadius={"lg"}
+              p={3}
+              m={1}
+            >
+              <Text>This is a dummy message.</Text>
+            </Flex>
+            <Flex
+              bg={"blue.100"}
+              width={"fit-content"}
+              minW={"100px"}
+              borderRadius={"lg"}
+              p={3}
+              m={1}
+            >
+              <Text>ok</Text>
+            </Flex>
+            <Flex
+              bg={"green.100"}
+              width={"fit-content"}
+              minW={"100px"}
+              borderRadius={"lg"}
+              p={3}
+              m={1}
+              alignSelf={"flex-end"}
+            >
+              <Text>This is a dummy message.</Text>
+            </Flex>
           </Flex>
-          <Flex
-            bg={"blue.100"}
-            width={"fit-content"}
-            minW={"100px"}
-            borderRadius={"lg"}
-            p={3}
-            m={1}
-          >
-            <Text>ok</Text>
-          </Flex>
-          <Flex
-            bg={"green.100"}
-            width={"fit-content"}
-            minW={"100px"}
-            borderRadius={"lg"}
-            p={3}
-            m={1}
-            alignSelf={"flex-end"}
-          >
-            <Text>This is a dummy message.</Text>
-          </Flex>
+          <BottomBar />
         </Flex>
-        <BottomBar />
       </Flex>
-    </Flex>
+    </>
   );
 };
 

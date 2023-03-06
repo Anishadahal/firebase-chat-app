@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Chat App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* @ts-ignore */}
