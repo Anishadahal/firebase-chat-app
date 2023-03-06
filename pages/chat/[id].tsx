@@ -29,7 +29,46 @@ const ChatDetail = () => {
       <Sidebar />
       <Flex flex={1} direction={"column"}>
         <TopBar />
-        <Flex flex={1}></Flex>
+        <Flex
+          flex={1}
+          direction={"column"}
+          pt={4}
+          marginX={5}
+          overflowY={"auto"}
+          sx={{ scrollbarWidth: "none" }}
+        >
+          <Flex
+            bg={"blue.100"}
+            width={"fit-content"}
+            minW={"100px"}
+            borderRadius={"lg"}
+            p={3}
+            m={1}
+          >
+            <Text>This is a dummy message.</Text>
+          </Flex>
+          <Flex
+            bg={"blue.100"}
+            width={"fit-content"}
+            minW={"100px"}
+            borderRadius={"lg"}
+            p={3}
+            m={1}
+          >
+            <Text>ok</Text>
+          </Flex>
+          <Flex
+            bg={"green.100"}
+            width={"fit-content"}
+            minW={"100px"}
+            borderRadius={"lg"}
+            p={3}
+            m={1}
+            alignSelf={"flex-end"}
+          >
+            <Text>This is a dummy message.</Text>
+          </Flex>
+        </Flex>
         <BottomBar />
       </Flex>
     </Flex>
